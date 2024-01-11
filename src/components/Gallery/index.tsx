@@ -25,7 +25,7 @@ const mock: GalleryItem[] = [
   },
   {
     type: 'video',
-    url: 'https://www.youtube.com/embed/uHGShqcAH1Q'
+    url: 'https://www.youtube.com/embed/C_IdgsdHwAo?si=IG3PSk_YsNaVBCnk'
   }
 ]
 
