@@ -45,7 +45,7 @@ const Checkout = () => {
       cpfCardOwner: '',
       cardDisplayName: '',
       cardNumber: '',
-      expiresMouth: '',
+      expiresMonth: '',
       expiresYear: '',
       cardCode: '',
       installments: 1
@@ -67,6 +67,7 @@ const Checkout = () => {
       confirmDeliveryEmail: Yup.string()
         .oneOf([Yup.ref('deliveryEmail')], 'Os e-mails são diferentes')
         .required('O campo é obrigatório'),
+
       cardOwner: Yup.string().when((values, schema) =>
         payWithCard ? schema.required('O campo é obrigatório') : schema
       ),
@@ -79,7 +80,7 @@ const Checkout = () => {
       cardNumber: Yup.string().when((values, schema) =>
         payWithCard ? schema.required('O campo é obrigatório') : schema
       ),
-      expiresMouth: Yup.string().when((values, schema) =>
+      expiresMonth: Yup.string().when((values, schema) =>
         payWithCard ? schema.required('O campo é obrigatório') : schema
       ),
       expiresYear: Yup.string().when((values, schema) =>
@@ -114,7 +115,7 @@ const Checkout = () => {
               name: values.cardOwner
             },
             expires: {
-              month: Number(values.expiresMouth),
+              month: Number(values.expiresMonth),
               year: Number(values.expiresYear)
             }
           }
@@ -371,7 +372,7 @@ const Checkout = () => {
                           type="text"
                           id="expiresMonth"
                           name="expiresMonth"
-                          value={form.values.expiresMouth}
+                          value={form.values.expiresMonth}
                           onChange={form.handleChange}
                           onBlur={form.handleBlur}
                           className={
